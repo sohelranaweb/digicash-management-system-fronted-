@@ -1,13 +1,13 @@
+import { Outlet } from "react-router";
 import "./App.css";
-import { Button } from "./components/ui/button";
+import CommonLayout from "./components/Layout/CommonLayout";
 
 function App() {
   return (
     <>
-      <div>
-        <h1 className="text-xl font-bold">Welcome to DigiCash App</h1>
-        <Button>Click me</Button>
-      </div>
+      <CommonLayout>
+        <Outlet></Outlet>
+      </CommonLayout>
     </>
   );
 }
