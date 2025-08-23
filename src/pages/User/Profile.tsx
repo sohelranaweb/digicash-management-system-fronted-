@@ -1,11 +1,20 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
-
 import { Button } from "@/components/ui/button";
-import { useUserInfoQuery } from "@/redux/features/auth/auth.api";
-import { useLogoutMutation } from "@/redux/features/wallet/wallet.api";
+import {
+  useLogoutMutation,
+  useUserInfoQuery,
+} from "@/redux/features/auth/auth.api";
+import {
+  Send,
+  Smartphone,
+  HandCoins,
+  ShoppingBag,
+  PlusCircle,
+  Lightbulb,
+  PiggyBank,
+  Handshake,
+} from "lucide-react";
+import { Link } from "react-router";
 
 export default function Profile() {
   const { data, isLoading, error } = useUserInfoQuery(undefined);
@@ -19,79 +28,117 @@ export default function Profile() {
   if (error) return <div>Failed to load profile.</div>;
 
   const user = data?.data;
+  console.log("user Info", user);
 
   return (
-    <Card className="w-full max-w-md mx-auto shadow-lg rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 transition-colors duration-300">
-      <CardHeader className="flex flex-col items-center gap-3">
-        {/* Avatar */}
-        <Avatar className="h-20 w-20 border-2 border-pink-500">
+    <div
+      className="w-full max-w-xl mx-auto shadow-lg rounded-2xl border overflow-hidden transition-colors duration-300"
+      style={{
+        background: "var(--card)",
+        color: "var(--card-foreground)",
+        borderColor: "var(--border)",
+      }}
+    >
+      {/* Header Section */}
+      <div
+        className="p-5 flex items-center gap-4"
+        style={{
+          background: "var(--primary)",
+          color: "var(--primary-foreground)",
+        }}
+      >
+        <Avatar className="h-14 w-14 border-2 border-white">
           {user?.avatarUrl ? (
             <AvatarImage src={user.avatarUrl} alt={user.name} />
           ) : (
-            <AvatarFallback className="bg-pink-600 text-white">
-              {user?.name.charAt(0).toUpperCase()}
+            <AvatarFallback
+              style={{
+                background: "var(--accent)",
+                color: "var(--accent-foreground)",
+              }}
+            >
+              {user?.name?.charAt(0).toUpperCase()}
             </AvatarFallback>
           )}
         </Avatar>
-
-        {/* Name + Email */}
-        <div className="text-center">
-          <CardTitle className="text-xl font-bold text-gray-900 dark:text-gray-100">
-            {user?.name}
-          </CardTitle>
-          <p className="text-sm text-gray-600 dark:text-gray-400">
-            {user?.email}
-          </p>
-        </div>
-
-        {/* Role Badge */}
-        <Badge
-          variant="outline"
-          className="uppercase px-3 py-1 text-xs font-semibold border-pink-500 text-pink-600 dark:text-pink-400 dark:border-pink-400"
-        >
-          {user?.role}
-        </Badge>
-      </CardHeader>
-
-      <Separator className="dark:bg-gray-700" />
-
-      <CardContent className="flex justify-between px-6 py-4">
-        {/* Status */}
-        <div className="flex flex-col items-center">
-          <span className="text-sm text-gray-600 dark:text-gray-400">
-            Status
-          </span>
-          <Badge
-            className={`mt-1 ${
-              user?.isActive === "ACTIVE"
-                ? "bg-green-500 hover:bg-green-600 text-white"
-                : "bg-red-500 hover:bg-red-600 text-white"
-            }`}
+        <div className="flex-1">
+          <h2 className="text-lg font-bold">{user?.name}</h2>
+          <Button
+            variant="secondary"
+            className="px-3 py-1 text-sm rounded-full mt-1"
+            style={{
+              background: "var(--background)",
+              color: "var(--primary)",
+              border: "1px solid var(--border)",
+            }}
           >
-            {user?.isActive === "ACTIVE" ? "Active" : "Inactive"}
-          </Badge>
+            {user?.wallet?.balance}
+          </Button>
         </div>
+      </div>
 
-        {/* Wallet */}
+      {/* Features Grid */}
+      <div className="grid grid-cols-4 gap-6 p-6">
+        <Link to="/user/topup" className="flex flex-col items-center">
+          <div className="p-3 rounded-xl mb-2 bg-muted">
+            <PlusCircle className="h-6 w-6 text-purple-500" />
+          </div>
+          <span className="text-xs">Top Up</span>
+        </Link>
+        <Link to="/user/sendMoney" className="flex flex-col items-center">
+          <div className="p-3 rounded-xl mb-2 bg-muted">
+            <Send className="h-6 w-6 text-purple-500" />
+          </div>
+          <span className="text-xs">Send Money</span>
+        </Link>
+        <Link to="/user/cashOut" className="flex flex-col items-center">
+          <div className="p-3 rounded-xl mb-2 bg-muted">
+            <HandCoins className="h-6 w-6 text-purple-500" />
+          </div>
+          <span className="text-xs">Cash Out</span>
+        </Link>
         <div className="flex flex-col items-center">
-          <span className="text-sm text-gray-600 dark:text-gray-400">
-            Wallet
-          </span>
-          <Badge className="mt-1 bg-pink-600 hover:bg-pink-700 text-white dark:bg-pink-500 dark:hover:bg-pink-600">
-            View
-          </Badge>
+          <div className="p-3 rounded-xl mb-2 bg-muted">
+            <Smartphone className="h-6 w-6 text-purple-500" />
+          </div>
+          <span className="text-xs">Recharge</span>
         </div>
-      </CardContent>
 
-      {/* Actions */}
-      <div className="flex justify-center gap-4 px-6 py-4">
-        <Button
-          onClick={handleLogout}
-          className="bg-red-500 hover:bg-red-600 text-white"
-        >
+        <div className="flex flex-col items-center">
+          <div className="p-3 rounded-xl mb-2 bg-muted">
+            <ShoppingBag className="h-6 w-6 text-purple-500" />
+          </div>
+          <span className="text-xs">Payment</span>
+        </div>
+
+        <div className="flex flex-col items-center">
+          <div className="p-3 rounded-xl mb-2 bg-muted">
+            <Lightbulb className="h-6 w-6 text-gray-500" />
+          </div>
+          <span className="text-xs">পে বিল</span>
+        </div>
+
+        <div className="flex flex-col items-center">
+          <div className="p-3 rounded-xl mb-2 bg-muted">
+            <PiggyBank className="h-6 w-6 text-pink-500" />
+          </div>
+          <span className="text-xs">সেভিংস</span>
+        </div>
+
+        <div className="flex flex-col items-center">
+          <div className="p-3 rounded-xl mb-2 bg-muted">
+            <Handshake className="h-6 w-6 text-amber-700" />
+          </div>
+          <span className="text-xs">লোন</span>
+        </div>
+      </div>
+
+      {/* Logout Button */}
+      <div className="p-4 flex justify-center">
+        <Button onClick={handleLogout} className="w-full">
           Logout
         </Button>
       </div>
-    </Card>
+    </div>
   );
 }

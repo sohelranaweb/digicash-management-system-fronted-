@@ -1,85 +1,59 @@
 import { baseApi } from "@/redux/baseApi";
-import type { IResponse } from "@/types";
-import type { ISendOtp, IVerifyOtp } from "@/types/auth.type";
+import type {
+  ICashOutApiResponse,
+  ICashOutBody,
+  IResponse,
+  ISendMoneyResponse,
+  ITopUpData,
+} from "@/types";
 
 export const walletApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    login: builder.mutation({
-      query: (loginInfo) => ({
-        url: "/auth/login",
-        method: "POST",
-        data: loginInfo,
-      }),
-    }),
-    logout: builder.mutation({
-      query: () => ({
-        url: "/auth/logout",
-        method: "POST",
-      }),
-      invalidatesTags: ["USER"],
-    }),
-    register: builder.mutation({
-      query: (userInfo) => ({
-        url: "/user/register",
-        method: "POST",
-        data: userInfo,
-      }),
-    }),
-    changePassword: builder.mutation({
-      query: (body) => ({
-        url: "/auth/change-password",
-        method: "POST",
-        data: body,
-      }),
-    }),
-    resetPassword: builder.mutation({
-      query: (body) => ({
-        url: "/auth/reset-password",
-        method: "POST",
-        data: body,
-      }),
-    }),
-    sendOtp: builder.mutation<IResponse<null>, ISendOtp>({
-      query: (userInfo) => ({
-        url: "/otp/send",
-        method: "POST",
-        data: userInfo,
-      }),
-    }),
-    verifyOtp: builder.mutation<IResponse<null>, IVerifyOtp>({
-      query: (userInfo) => ({
-        url: "/otp/verify",
-        method: "POST",
-        data: userInfo,
-      }),
-    }),
-
-    userInfo: builder.query({
-      query: () => ({
-        url: "/user/me",
+    getMyWalletAndTrx: builder.query({
+      query: (params) => ({
+        url: "wallet/wallet-trnx-history",
         method: "GET",
+        params,
       }),
-      providesTags: ["USER"],
+      providesTags: ["WALLET"],
     }),
-    updateProfile: builder.mutation({
-      query: ({ userId, body }) => ({
-        url: `/user/${userId}`,
-        method: "PATCH",
+    topUpWallet: builder.mutation<IResponse<ITopUpData>, { amount: number }>({
+      query: (body) => ({
+        url: "wallet/top-up",
+        method: "POST",
         data: body,
       }),
       invalidatesTags: ["USER"],
+    }),
+    sendMoney: builder.mutation<
+      IResponse<ISendMoneyResponse>,
+      {
+        receiverId: string;
+        amount: number;
+        reference: string;
+      }
+    >({
+      query: (body) => ({
+        url: "wallet/send-money",
+        method: "POST",
+        data: body,
+      }),
+      invalidatesTags: ["USER"], // user info auto-refetch হবে
+    }),
+    cashOut: builder.mutation<ICashOutApiResponse, ICashOutBody>({
+      query: (body) => ({
+        url: "/wallet/cash-out",
+        method: "POST",
+        data: body,
+      }),
+      invalidatesTags: ["USER", "WALLET"], // refresh balances
     }),
   }),
 });
 
 export const {
-  useRegisterMutation,
-  useLoginMutation,
-  useChangePasswordMutation,
-  useSendOtpMutation,
-  useVerifyOtpMutation,
-  useUserInfoQuery,
-  useLogoutMutation,
-  useUpdateProfileMutation,
-  useResetPasswordMutation,
+  useGetMyWalletAndTrxQuery,
+  useTopUpWalletMutation,
+  useSendMoneyMutation,
+  useCashOutMutation,
 } = walletApi;

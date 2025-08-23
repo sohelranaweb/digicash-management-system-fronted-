@@ -48,3 +48,43 @@ export interface IErrorResponse {
   };
   stack?: string;
 }
+
+export interface ITopUpData {
+  balance: number; // তোমার API যা return করে সেটা বসাও
+  // maybe transactionId?: string;
+}
+
+export interface ISendMoneyData {
+  balance: number; // sender এর updated balance
+  transactionId: string;
+}
+
+export interface ISendMoneyResponse {
+  oldBalance: number;
+  newSenderBalance: number;
+  trxId: string;
+}
+
+// request body
+export interface ICashOutBody {
+  amount: number;
+  agentWalletId: string;
+  reference?: string;
+}
+
+// response data
+export interface ICashOutResponse {
+  oldBalance: number;
+  totalDeducted: number;
+  newBalance: number;
+  fee: number;
+  trxId: string;
+}
+
+// full API response
+export interface ICashOutApiResponse {
+  statusCode: number;
+  success: boolean;
+  message: string;
+  data: ICashOutResponse;
+}
