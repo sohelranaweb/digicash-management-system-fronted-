@@ -17,7 +17,6 @@ import { role } from "@/constants/role";
 import type { TRole } from "@/types";
 import { adminSidebarItems } from "./adminSidebarItems";
 import { agentSidebarItems } from "./agentSidebarItems";
-import TopUp from "@/pages/User/TopUp";
 
 export const router = createBrowserRouter([
   {

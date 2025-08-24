@@ -1,5 +1,6 @@
 import { baseApi } from "@/redux/baseApi";
 import type {
+  ICashInResponse,
   ICashOutApiResponse,
   ICashOutBody,
   IResponse,
@@ -38,7 +39,22 @@ export const walletApi = baseApi.injectEndpoints({
         method: "POST",
         data: body,
       }),
-      invalidatesTags: ["USER"], // user info auto-refetch হবে
+      invalidatesTags: ["USER"],
+    }),
+    cashIn: builder.mutation<
+      IResponse<ICashInResponse>,
+      {
+        userId: string;
+        amount: number;
+        reference: string;
+      }
+    >({
+      query: (body) => ({
+        url: "wallet/cash-in",
+        method: "POST",
+        data: body,
+      }),
+      invalidatesTags: ["USER"],
     }),
     cashOut: builder.mutation<ICashOutApiResponse, ICashOutBody>({
       query: (body) => ({
@@ -56,4 +72,5 @@ export const {
   useTopUpWalletMutation,
   useSendMoneyMutation,
   useCashOutMutation,
+  useCashInMutation,
 } = walletApi;

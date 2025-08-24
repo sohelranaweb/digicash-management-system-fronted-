@@ -5,11 +5,9 @@ import {
   useUserInfoQuery,
 } from "@/redux/features/auth/auth.api";
 import {
-  Send,
   Smartphone,
   HandCoins,
   ShoppingBag,
-  PlusCircle,
   Lightbulb,
   PiggyBank,
   Handshake,
@@ -79,7 +77,7 @@ export default function AgentProfile() {
 
       {/* Features Grid */}
       <div className="grid grid-cols-4 gap-6 p-6">
-        <Link to="/user/cashOut" className="flex flex-col items-center">
+        <Link to="/agent/cashIn" className="flex flex-col items-center">
           <div className="p-3 rounded-xl mb-2 bg-muted">
             <HandCoins className="h-6 w-6 text-purple-500" />
           </div>
@@ -119,6 +117,24 @@ export default function AgentProfile() {
           </div>
           <span className="text-xs">লোন</span>
         </div>
+      </div>
+
+      {/* Update profiel  */}
+      <div className="px-10 py-6 flex space-x-6">
+        <Button asChild>
+          Update profile
+          {/* <UpdateProfileModal userId={user?._id}></UpdateProfileModal> */}
+        </Button>
+        <Button asChild>
+          Change Password
+          {/* <ChangePasswordModal></ChangePasswordModal> */}
+        </Button>
+        <Button asChild>
+          {/* <ResetPasswordModal userId={user?._id}></ResetPasswordModal> */}
+        </Button>
+        <Button>Forgot Password</Button>
+        <Button>Set Password</Button>
+        <Button onClick={handleLogout}>Logout</Button>
       </div>
 
       {/* Logout Button */}

@@ -64,6 +64,11 @@ export interface ISendMoneyResponse {
   newSenderBalance: number;
   trxId: string;
 }
+export interface ICashInResponse {
+  oldBalance: number;
+  newAgentBalance: number;
+  trxId: string;
+}
 
 // request body
 export interface ICashOutBody {
