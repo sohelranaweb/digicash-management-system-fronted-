@@ -37,9 +37,9 @@ function AgentWalletTrx() {
     "default" | "secondary" | "destructive" | "outline"
   > = {
     ADD_MONEY: "default",
-  SEND_MONEY: "secondary",
-  CASH_OUT: "destructive",
-  CASH_IN: "outline",
+    SEND_MONEY: "secondary",
+    CASH_OUT: "destructive",
+    CASH_IN: "outline",
   };
 
   return (
