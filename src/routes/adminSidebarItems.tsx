@@ -2,16 +2,16 @@ import type { ISidebarItem } from "@/types";
 
 import { lazy } from "react";
 
-const Analytics = lazy(() => import("@/pages/Admin/Analytics"));
+const OverView = lazy(() => import("@/pages/Admin/OverView"));
 
 export const adminSidebarItems: ISidebarItem[] = [
   {
     title: "Dashboard",
     items: [
       {
-        title: "Analytics",
-        url: "/admin/analytics",
-        component: Analytics,
+        title: "OverView",
+        url: "/admin/overView",
+        component: OverView,
       },
     ],
   },
