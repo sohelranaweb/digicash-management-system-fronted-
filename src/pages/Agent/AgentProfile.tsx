@@ -119,6 +119,9 @@ export default function AgentProfile() {
             <p>
               <strong>Wallet Balance:</strong> {user?.wallet?.balance}
             </p>
+            <p>
+              <strong>Agent Approval:</strong> {user?.agentApprovalStatus}
+            </p>
           </div>
         </DialogContent>
       </Dialog>

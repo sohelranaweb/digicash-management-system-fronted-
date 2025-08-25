@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import {
   authApi,
   useLogoutMutation,
+  useRequestAgentRoleMutation,
   useUserInfoQuery,
 } from "@/redux/features/auth/auth.api";
 import { useAppDispatch } from "@/redux/hooks";
@@ -17,7 +18,7 @@ import {
   PiggyBank,
   Handshake,
 } from "lucide-react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { UpdateProfileModal } from "../../components/modules/User/UpdateProfileModal";
 import {
   Dialog,
@@ -26,12 +27,16 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { ChangePasswordModal } from "@/components/modules/User/ChangePasswordModal";
+import { toast } from "sonner";
 
 export default function Profile() {
+  const navigate = useNavigate();
   const { data, isLoading, error } = useUserInfoQuery(undefined);
   const [logout] = useLogoutMutation();
   const dispatch = useAppDispatch();
   const [open, setOpen] = useState(false);
+  const [requestAgentRole, { isLoading: isRequesting }] =
+    useRequestAgentRoleMutation();
 
   const handleLogout = async () => {
     await logout(undefined);
@@ -43,6 +48,19 @@ export default function Profile() {
 
   const user = data?.data;
   console.log("user Info", user);
+  const handleAgentRequest = async () => {
+    try {
+      await requestAgentRole(undefined).unwrap();
+      toast.success(
+        "Agent request submitted successfully! Waiting for admin approval."
+      );
+      navigate("/");
+    } catch (err: any) {
+      toast.error(
+        err.data?.message || err.message || "Failed to submit agent request"
+      );
+    }
+  };
 
   return (
     <div
@@ -162,21 +180,21 @@ export default function Profile() {
           <div className="p-3 rounded-xl mb-2 bg-muted">
             <Lightbulb className="h-6 w-6 text-gray-500" />
           </div>
-          <span className="text-xs">পে বিল</span>
+          <span className="text-xs">Pay Bill</span>
         </div>
 
         <div className="flex flex-col items-center">
           <div className="p-3 rounded-xl mb-2 bg-muted">
             <PiggyBank className="h-6 w-6 text-pink-500" />
           </div>
-          <span className="text-xs">সেভিংস</span>
+          <span className="text-xs">Savings</span>
         </div>
 
         <div className="flex flex-col items-center">
           <div className="p-3 rounded-xl mb-2 bg-muted">
             <Handshake className="h-6 w-6 text-amber-700" />
           </div>
-          <span className="text-xs">লোন</span>
+          <span className="text-xs">Loan</span>
         </div>
       </div>
 
@@ -186,6 +204,18 @@ export default function Profile() {
         </Button>
         <Button asChild>
           <ChangePasswordModal></ChangePasswordModal>
+        </Button>
+        <Button
+          onClick={handleAgentRequest}
+          disabled={
+            isRequesting ||
+            user?.role === "AGENT" ||
+            user?.agentApprovalStatus === "PENDING"
+          }
+        >
+          {user?.agentApprovalStatus === "PENDING"
+            ? "Pending"
+            : "Agent Request"}
         </Button>
       </div>
 

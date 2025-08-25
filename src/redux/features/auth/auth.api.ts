@@ -69,6 +69,21 @@ export const authApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ["USER"],
     }),
+    requestAgentRole: builder.mutation({
+      query: () => ({
+        url: `/user/request-agent`,
+        method: "POST",
+      }),
+      invalidatesTags: ["USER"],
+    }),
+    aprovedAgent: builder.mutation({
+      query: ({ userId, body }) => ({
+        url: `/user/approve-agent/${userId}`,
+        method: "PATCH",
+        data: body,
+      }),
+      invalidatesTags: ["USER"],
+    }),
   }),
 });
 
@@ -82,4 +97,6 @@ export const {
   useLogoutMutation,
   useUpdateProfileMutation,
   useResetPasswordMutation,
+  useRequestAgentRoleMutation,
+  useAprovedAgentMutation,
 } = authApi;

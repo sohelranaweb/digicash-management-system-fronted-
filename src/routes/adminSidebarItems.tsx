@@ -1,3 +1,4 @@
+import ManageUsers from "@/pages/Admin/ManageUsers";
 import type { ISidebarItem } from "@/types";
 
 import { lazy } from "react";
@@ -12,6 +13,11 @@ export const adminSidebarItems: ISidebarItem[] = [
         title: "OverView",
         url: "/admin/overView",
         component: OverView,
+      },
+      {
+        title: "Manage Users",
+        url: "/admin/manageUsers",
+        component: ManageUsers,
       },
     ],
   },

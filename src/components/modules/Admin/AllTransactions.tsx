@@ -43,7 +43,7 @@ function AllTransactions() {
     CASH_IN: "outline",
   };
   return (
-    <div className="max-w-5xl mx-auto p-6 space-y-6">
+    <div className="max-w-6xl mx-auto p-6 space-y-6">
       <Card className="shadow-md">
         <CardHeader>
           <CardTitle className="text-xl font-bold">

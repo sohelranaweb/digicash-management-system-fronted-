@@ -178,7 +178,7 @@ function CashIn() {
         <DialogContent className="max-w-md rounded-xl border bg-card text-card-foreground shadow-md">
           <DialogHeader className="bg-primary text-primary-foreground rounded-t-xl p-4">
             <DialogTitle className="text-lg font-semibold">
-              Transaction Successful 🎉
+              Transaction Successful
             </DialogTitle>
           </DialogHeader>
 

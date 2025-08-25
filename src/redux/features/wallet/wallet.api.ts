@@ -62,7 +62,15 @@ export const walletApi = baseApi.injectEndpoints({
         method: "POST",
         data: body,
       }),
-      invalidatesTags: ["USER", "WALLET"], // refresh balances
+      invalidatesTags: ["USER", "WALLET"],
+    }),
+    manageBlock: builder.mutation({
+      query: ({ walletId, body }) => ({
+        url: `/wallet/unblock/${walletId}`,
+        method: "PATCH",
+        data: body,
+      }),
+      invalidatesTags: ["USER"],
     }),
   }),
 });
@@ -73,4 +81,5 @@ export const {
   useSendMoneyMutation,
   useCashOutMutation,
   useCashInMutation,
+  useManageBlockMutation,
 } = walletApi;

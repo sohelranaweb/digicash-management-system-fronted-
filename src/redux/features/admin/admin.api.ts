@@ -32,6 +32,14 @@ export const adminApi = baseApi.injectEndpoints({
       }),
       providesTags: ["WALLETSTATS"],
     }),
+    manageUsers: builder.query({
+      query: (params) => ({
+        url: "user/all-users",
+        method: "GET",
+        params,
+      }),
+      providesTags: ["USER"],
+    }),
   }),
 });
 
@@ -40,4 +48,5 @@ export const {
   useAllTransactionsQuery,
   useTransactionsStatsQuery,
   useWalletStatsQuery,
+  useManageUsersQuery,
 } = adminApi;
