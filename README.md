@@ -1,7 +1,26 @@
 # DigiCash 💳
 
-A modern **digital wallet and transaction management system** built with the **MERN stack + TypeScript**.  
-DigiCash allows users to send and receive money, add funds, withdraw (cash out), and track transactions with a real-time dashboard for both users and admins.
+## Project Overview (Frontend)
+
+**DigiCash Frontend** is a modern, responsive web application designed to provide users with a seamless digital wallet experience, similar to **Bkash, Nagad, or Rocket**.
+
+Built using **React, TypeScript, TailwindCSS, and Shadcn UI**, the frontend offers a clean and intuitive interface for different user roles: **Admin, Agent, and User**.
+
+The system integrates securely with the DigiCash backend, allowing users to perform real-time transactions such as **Send Money, Cash In, Cash Out, and Add Money**, while providing **admins with advanced dashboards** to monitor activities, profits, and agent commissions.
+
+---
+
+### ✨ Key Highlights
+
+- **Role-based UI** (Admin / Agent / User)
+- **Transaction Dashboard** with daily, weekly, and monthly summaries
+- **Dark & Light Mode Support** for a better user experience
+- **Secure API Integration** with JWT authentication
+- **Scalable, Modular Frontend Architecture** with TypeScript
+
+---
+
+⚡ DigiCash Frontend ensures a **smooth, user-friendly, and responsive experience**, making it suitable for **modern digital payment platforms**.
 
 ---
 
