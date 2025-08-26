@@ -67,7 +67,7 @@ function ManageUsers() {
     }
   };
   return (
-    <div className="max-w-5xl mx-auto p-6 space-y-6">
+    <div>
       <Card className="shadow-md">
         <CardHeader>
           <CardTitle className="text-xl font-bold">All Users History</CardTitle>

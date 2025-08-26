@@ -1,3 +1,4 @@
+import AllTransactionHistory from "@/pages/Admin/AllTransactionHistory";
 import ManageUsers from "@/pages/Admin/ManageUsers";
 import type { ISidebarItem } from "@/types";
 
@@ -18,6 +19,11 @@ export const adminSidebarItems: ISidebarItem[] = [
         title: "Manage Users",
         url: "/admin/manageUsers",
         component: ManageUsers,
+      },
+      {
+        title: "Transaction History",
+        url: "/admin/TrxHistory",
+        component: AllTransactionHistory,
       },
     ],
   },
