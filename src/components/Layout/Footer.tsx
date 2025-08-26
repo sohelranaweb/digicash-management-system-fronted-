@@ -1,4 +1,5 @@
 import Logo from "@/assets/icons/Logo";
+import { Link } from "react-router";
 
 function Footer() {
   return (
@@ -7,9 +8,9 @@ function Footer() {
         <div className="mx-auto container space-y-8 px-4 py-16">
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
             <div>
-              <div className="text-foreground">
+              <Link to="/" className="text-foreground">
                 <Logo></Logo>
-              </div>
+              </Link>
 
               <p className="mt-4 max-w-xs text-muted-foreground">
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse
