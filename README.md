@@ -24,6 +24,19 @@ The system integrates securely with the DigiCash backend, allowing users to perf
 
 ---
 
+## 🛠️ Tech Stack
+
+- **Framework:** React 19 + TypeScript
+- **Styling:** TailwindCSS + Shadcn UI
+- **State Management:** Redux Toolkit
+- **Forms & Validation:** React Hook Form + Zod
+- **Routing:** React Router v7
+- **Data Fetching:** Axios, RTK Query
+- **Charts & Visualization:** Recharts
+- **UI Enhancements:** Radix UI, Lucide Icons, Sonner
+
+---
+
 ## 🚀 Features
 
 - **User Wallet System**
@@ -39,7 +52,6 @@ The system integrates securely with the DigiCash backend, allowing users to perf
 
 - **Transaction Dashboard**
 
-  - Daily, Weekly, and Monthly summaries
   - Track Send Money, Cash In, Cash Out, Add Money, Agent Commission, Admin Profit
 
 - **Secure Authentication**
@@ -52,34 +64,3 @@ The system integrates securely with the DigiCash backend, allowing users to perf
   - Light & Dark mode support
 
 ---
-
-## 🛠️ Tech Stack
-
-**Frontend:**
-
-- React + TypeScript
-- TailwindCSS + Shadcn UI
-- React Query
-
-**Backend:**
-
-- Node.js + Express + TypeScript
-- MongoDB + Mongoose
-- JWT Authentication
-
-**Others:**
-
-- Docker (optional deployment)
-- Vercel / Netlify for frontend
-- Railway / Render for backend
-
----
-
-## 📦 Installation
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/your-username/digicash.git
-cd digicash
-```
