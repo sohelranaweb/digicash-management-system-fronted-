@@ -1,69 +1,66 @@
-# React + TypeScript + Vite
+# DigiCash 💳
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern **digital wallet and transaction management system** built with the **MERN stack + TypeScript**.  
+DigiCash allows users to send and receive money, add funds, withdraw (cash out), and track transactions with a real-time dashboard for both users and admins.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- **User Wallet System**
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+  - Add Money / Top-up
+  - Cash In / Cash Out
+  - Send Money between users
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Agent & Commission Management**
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+  - Agents earn commission for transactions
+  - Admin dashboard shows agent profit vs admin profit
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **Transaction Dashboard**
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+  - Daily, Weekly, and Monthly summaries
+  - Track Send Money, Cash In, Cash Out, Add Money, Agent Commission, Admin Profit
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- **Secure Authentication**
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+  - JWT-based auth system
+  - Role-based access (Admin / Agent / User)
+
+- **Responsive UI**
+  - Built with **React, Tailwind, Shadcn UI**
+  - Light & Dark mode support
+
+---
+
+## 🛠️ Tech Stack
+
+**Frontend:**
+
+- React + TypeScript
+- TailwindCSS + Shadcn UI
+- React Query
+
+**Backend:**
+
+- Node.js + Express + TypeScript
+- MongoDB + Mongoose
+- JWT Authentication
+
+**Others:**
+
+- Docker (optional deployment)
+- Vercel / Netlify for frontend
+- Railway / Render for backend
+
+---
+
+## 📦 Installation
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/your-username/digicash.git
+cd digicash
 ```
