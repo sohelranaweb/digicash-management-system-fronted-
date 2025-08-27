@@ -65,17 +65,17 @@ The system integrates securely with the DigiCash backend, allowing users to perf
 
 ### Testing purpose user information
 
-### 👥 User Features
+### 👥 User 
 
 Email: sohel.rana.web1@gmail.com
 Password: Sohel1web!
 
-### 🧑‍💼 Agent Features
+### 🧑‍💼 Agent 
 
 Email: sohel@gmail.com
 Password: Sohel12345!
 
-### 🛠️ Admin Features
+### 🛠️ Admin 
 
 Email: sohel.rana.web2@gmail.com
 Password: Sohel2Admin!
