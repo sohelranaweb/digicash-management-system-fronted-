@@ -1,5 +1,7 @@
 # DigiCash 💳
 
+## live site: https://digicash-client.vercel.app
+
 ## Project Overview (Frontend)
 
 **DigiCash Frontend** is a modern, responsive web application designed to provide users with a seamless digital wallet experience, similar to **Bkash, Nagad, or Rocket**.
