@@ -37,30 +37,43 @@ The system integrates securely with the DigiCash backend, allowing users to perf
 
 ---
 
-## 🚀 Features
+## 💼 Wallet Management System Features
 
-- **User Wallet System**
+### 👥 User Features
 
-  - Add Money / Top-up
-  - Cash In / Cash Out
-  - Send Money between users
+- **Add Money** – Users can top-up their wallet
+- **Withdraw Money (Cash-out)** – Transfer money from wallet to bank/cash
+- **Send Money to Another User** – Seamless user-to-user transfer
+- **View Transaction History** – Detailed history of top-ups, withdrawals, and transfers
 
-- **Agent & Commission Management**
+### 🧑‍💼 Agent Features
 
-  - Agents earn commission for transactions
-  - Admin dashboard shows agent profit vs admin profit
+- **Cash In (Add Money) to User Wallets** – Accept cash and add money to users
+- **Cash Out (Withdraw Money) from User Wallets** – Give cash and deduct from user
+- **View Commission History** – See commission earnings
+- **View Transaction History** – Review own transaction activity
 
-- **Transaction Dashboard**
+### 🛠️ Admin Features
 
-  - Track Send Money, Cash In, Cash Out, Add Money, Agent Commission, Admin Profit
-
-- **Secure Authentication**
-
-  - JWT-based auth system
-  - Role-based access (Admin / Agent / User)
-
-- **Responsive UI**
-  - Built with **React, Tailwind, Shadcn UI**
-  - Light & Dark mode support
+- **View All Data** – Access to all users, agents, wallets, and transactions
+- **Block/Unblock Wallets** – Control wallet activity
+- **Approve/Suspend Agents** – Maintain agent integrity
 
 ---
+
+### Testing purpose user information
+
+### 👥 User Features
+
+Email: sohel.rana.web1@gmail.com
+Password: Sohel1web!
+
+### 🧑‍💼 Agent Features
+
+Email: sohel@gmail.com
+Password: Sohel12345!
+
+### 🛠️ Admin Features
+
+Email: sohel.rana.web2@gmail.com
+Password: Sohel2Admin!
