@@ -20,6 +20,8 @@ import { useEffect, useState } from "react";
 import Corporate from "@/components/modules/About/Corporate";
 import Publications from "@/components/modules/About/Publications";
 import Story from "@/components/modules/About/Story";
+import AboutBanner from "@/components/modules/About/AboutBanner";
+import CoreValue from "@/components/modules/About/CoreValue";
 
 function About() {
   const [loading, setLoading] = useState(true);
@@ -33,8 +35,13 @@ function About() {
   return (
     <div>
       {/* Pass loading state to children */}
-      <Story loading={loading} />
+      <AboutBanner></AboutBanner>
+      <hr />
+      <CoreValue></CoreValue>
+      <hr />
+      {/* <Story loading={loading} /> */}
       <Corporate loading={loading} />
+      <hr />
       <Publications loading={loading} />
     </div>
   );

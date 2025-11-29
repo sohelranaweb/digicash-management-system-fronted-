@@ -1,5 +1,5 @@
 import PricingBanner from "@/components/modules/pricing/PricingBanner";
-import PricingCard from "@/components/modules/pricing/pricingCard";
+import PricingCard from "@/components/modules/pricing/PricingCard";
 import PricingDetails from "@/components/modules/pricing/PricingDetails";
 import PricingFAQ from "@/components/modules/pricing/PricingFAQ";
 
