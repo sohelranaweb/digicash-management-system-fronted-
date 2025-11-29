@@ -11,10 +11,11 @@ import {
   SidebarMenuItem,
   SidebarRail,
 } from "@/components/ui/sidebar";
-import Logo from "@/assets/icons/Logo";
+// import Logo from "@/assets/icons/Logo";
 import { Link } from "react-router";
 import { getSidebarItems } from "@/utils/getSidebarItems";
 import { useUserInfoQuery } from "@/redux/features/auth/auth.api";
+import Logo from "./modules/Logo/Logo";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { data: userData } = useUserInfoQuery(undefined);
@@ -26,7 +27,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     <Sidebar {...props}>
       <SidebarHeader>
         <Link to="/">
-          <Logo></Logo>
+          <Logo />
         </Link>
       </SidebarHeader>
       <SidebarContent>

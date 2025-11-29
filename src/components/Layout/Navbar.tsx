@@ -1,4 +1,4 @@
-import Logo from "@/assets/icons/Logo";
+// import Logo from "@/assets/icons/Logo";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -21,6 +21,7 @@ import {
 import { useAppDispatch } from "@/redux/hooks";
 import { role } from "@/constants/role";
 import React from "react";
+import Logo from "../modules/Logo/Logo";
 
 console.log("role", role.admin);
 // Navigation links array to be used in both desktop and mobile menus
@@ -121,9 +122,10 @@ export default function Navbar() {
           </Popover>
           {/* Main nav */}
           <div className="flex items-center gap-6">
-            <a href="#" className="text-primary hover:text-primary/90">
+            <Link to="/">
               <Logo />
-            </a>
+            </Link>
+
             {/* Navigation menu */}
             <NavigationMenu className="max-md:hidden">
               <NavigationMenuList className="gap-2">
