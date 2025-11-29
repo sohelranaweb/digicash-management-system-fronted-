@@ -19,7 +19,7 @@
 import { useEffect, useState } from "react";
 import Corporate from "@/components/modules/About/Corporate";
 import Publications from "@/components/modules/About/Publications";
-import Story from "@/components/modules/About/Story";
+
 import AboutBanner from "@/components/modules/About/AboutBanner";
 import CoreValue from "@/components/modules/About/CoreValue";
 
